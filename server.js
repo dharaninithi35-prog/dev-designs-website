@@ -4,9 +4,21 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const nodemailer = require('nodemailer'); // For sending automatic confirmation emails
+
+// 📧 Configure Email Transporter (SMTP Setup)
+// Note: To use Gmail, you must generate an "App Password" in your Google Account security settings
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'devdesignsadmin@gmail.com', // Base email we created for you
+        pass: 'your-app-password-here'     // Needs to be replaced with real App Password
+    }
+});
 
 const User = require('./models/User');
 const RequestModel = require('./models/Request');
+const ReviewModel = require('./models/Review');
 
 const app = express();
 app.use(express.json());
@@ -87,6 +99,23 @@ app.post('/api/projects', upload.single('projectFile'), async (req, res) => {
         });
 
         await newRequest.save();
+
+        // ✉️ Send Automatic Confirmation Email to the Client
+        try {
+            const mailOptions = {
+                from: '"Dev Designs" <devdesignsadmin@gmail.com>',
+                to: email, // Reaches the exact email they typed into the form
+                subject: 'Project Request Received – Dev Designs',
+                text: `Thank you for contacting Dev Designs. Your project request has been successfully submitted. Our team will review the details and get back to you shortly regarding the next steps.`
+            };
+            
+            await transporter.sendMail(mailOptions);
+            console.log(`✅ Confirmation email sent successfully to: ${email}`);
+        } catch (emailErr) {
+            console.error('⚠️ Failed to send confirmation email:', emailErr.message);
+            // We only log the error so the project still officially submits even if the email config acts up
+        }
+
         res.json({ message: 'Project request submitted successfully!' });
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -125,6 +154,53 @@ app.put('/api/projects/:id', upload.single('completedFile'), async (req, res) =>
     }
 });
 
+// --- CLIENT REVIEWS ROUTES --- //
+
+// Submit a new review
+app.post('/api/reviews', async (req, res) => {
+    try {
+        const { clientName, projectName, rating, reviewText } = req.body;
+        const review = new ReviewModel({ clientName, projectName, rating, reviewText });
+        await review.save();
+        res.json({ message: 'Review submitted successfully!' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Get all reviews (Public logic vs Admin logic handled via query)
+app.get('/api/reviews', async (req, res) => {
+    try {
+        const { publicOnly } = req.query;
+        let query = {};
+        if (publicOnly === 'true') query.status = 'Approved';
+        
+        const reviews = await ReviewModel.find(query).sort({ createdAt: -1 });
+        res.json(reviews);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Admin: Approve a review
+app.put('/api/reviews/:id/approve', async (req, res) => {
+    try {
+        const updated = await ReviewModel.findByIdAndUpdate(req.params.id, { status: 'Approved' }, { new: true });
+        res.json({ message: 'Review Approved', review: updated });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Admin: Delete a review
+app.delete('/api/reviews/:id', async (req, res) => {
+    try {
+        await ReviewModel.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Review Deleted' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Start Server
 const PORT = process.env.PORT || 5000;
