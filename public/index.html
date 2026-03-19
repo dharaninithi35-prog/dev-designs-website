@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Designs | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo"><img src="logo.svg" alt="Dev Designs Logo">Dev Designs</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="btn-icon">🌙</button>
+            <a href="login.html" class="btn-primary" id="loginBtn">Login</a>
+            <a href="dashboard.html" class="btn-icon" id="dashboardMenuBtn" style="display: none; text-decoration: none; padding: 8px 12px; font-size: 1.4rem;" title="Go to Dashboard">&#9776;</a>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Turning Ideas into Stunning Designs & Videos.</h1>
+            <p>Your one-stop destination for premium Graphic Design and Cinematic Video Editing services.</p>
+            <a href="login.html" class="btn-primary large">Start a Project</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title text-center">About Dev Designs</h2>
+            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+                
+                <div class="text-center">
+                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted);">
+                        <strong>Dev Designs</strong> is a premier digital creative agency specializing in <strong>Graphic Design, Photo Editing, and Cinematic Video Editing</strong>. We partner with businesses, creators, and individuals across the globe to transform raw ideas into powerful, captivating visual content that tells a compelling story.
+                    </p>
+                </div>
+
+                <div class="card text-left" style="background: var(--bg-main);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Our Mission</h3>
+                    <p style="color: var(--text-muted); line-height: 1.7;">
+                        Our approach is built on the core belief that every brand has a unique identity. We merge relentless creativity with professional, high-quality production standards to ensure your narrative stands out in a crowded digital landscape. We obsess over every frame, pixel, and color grade to deliver masterpieces that exceed expectations.
+                    </p>
+                </div>
+
+                <div class="grid-2 mt-2">
+                    <div class="card text-left">
+                        <h3 style="margin-bottom: 1rem; color: var(--secondary);">Core Expertise</h3>
+                        <ul style="color: var(--text-muted); list-style: none; line-height: 2;">
+                            <li>🎨 Complete Graphic Design & Branding</li>
+                            <li>📸 Professional Photo Editing & Retouching</li>
+                            <li>🎬 Cinematic Video Editing</li>
+                            <li>📱 Engaging Social Media Content</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card text-left">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary);">Why Choose Dev Designs?</h3>
+                        <ul style="color: var(--text-muted); list-style: none; line-height: 2;">
+                            <li>✨ <strong>Unmatched Creativity:</strong> Original designs tailored to your specific brand DNA.</li>
+                            <li>💎 <strong>Premium Quality:</strong> High-fidelity editing and flawless technical execution.</li>
+                            <li>⚡ <strong>Rapid Delivery:</strong> Professional-grade results delivered precisely on your deadlines.</li>
+                            <li>🤝 <strong>Client-Focused:</strong> Collaborative process guaranteeing your complete satisfaction.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Services</h2>
+            <div class="grid-3">
+                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                    <div>
+                        <div class="card-icon">🎨</div>
+                        <h3>Graphic Design</h3>
+                        <p>Branding, Logos, Posters, UI/UX framing, and high-fidelity digital art perfectly tailored to your vision.</p>
+                    </div>
+                    <a href="brochure.html#graphic-design" class="btn-primary w-100" style="margin-top: 1.5rem; text-decoration: none; display: block;">View</a>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                    <div>
+                        <div class="card-icon">🎬</div>
+                        <h3>Video Editing</h3>
+                        <p>Social media reels, cinematic montages, corporate videos, and YouTube content with superior color grading.</p>
+                    </div>
+                    <a href="brochure.html#video-editing" class="btn-primary w-100" style="margin-top: 1.5rem; text-decoration: none; display: block;">View</a>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                    <div>
+                        <div class="card-icon">📸</div>
+                        <h3>Photo Editing</h3>
+                        <p>Professional retouching, color correction, and image manipulation to make your photos stand out.</p>
+                    </div>
+                    <a href="brochure.html#photo-editing" class="btn-primary w-100" style="margin-top: 1.5rem; text-decoration: none; display: block;">View</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title text-center">Client Testimonials</h2>
+            <div id="testimonials-list" class="grid-3" style="margin-top: 3rem;">
+                <!-- Loaded dynamically by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page/Section -->
+    <section id="contact" class="section">
+        <div class="container text-center">
+            <h2 class="section-title">Let’s Create Together</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; line-height: 1.6;">
+                Ready to elevate your brand with stunning Graphic Design, Photo Editing, or Cinematic Video Editing? 
+                Whether you’re a creator, business, or visionary, our team is ready to bring your ideas to life. Reach out today for a custom project quote!
+            </p>
+            
+            <div class="grid-2" style="max-width: 800px; margin: 0 auto;">
+                <!-- Email Contact Card -->
+                <a href="mailto:devdesignsadmin@gmail.com?subject=Project Inquiry" class="card" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✉️</div>
+                    <h3 style="color: var(--text);">Email Us</h3>
+                    <p style="color: var(--primary); font-weight: 600; font-size: 1.1rem;">devdesignsadmin@gmail.com</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Click to compose</p>
+                </a>
+
+                <!-- Phone Contact Card -->
+                <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="color: var(--text);">Call Us</h3>
+                    <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 5px;">
+                        <a href="tel:9443104878" style="color: var(--primary); font-weight: 600; font-size: 1.1rem;">+91 944310 4878</a>
+                        <a href="tel:7708595172" style="color: var(--primary); font-weight: 600; font-size: 1.1rem;">+91 770859 5172</a>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Click to instantly dial</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom: 1rem;">
+            <a href="index.html" class="logo" style="justify-content: center;"><img src="logo.svg" alt="Dev Designs Logo">Dev Designs</a>
+        </div>
+        <p>&copy; 2026 Dev Designs. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

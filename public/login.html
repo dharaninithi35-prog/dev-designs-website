@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Designs | Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-alt">
+
+    <nav class="navbar">
+        <a href="index.html" class="logo"><img src="logo.svg" alt="Dev Designs Logo">Dev Designs</a>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="btn-icon">🌙</button>
+        </div>
+    </nav>
+
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px 20px 20px; width: 100vw;">
+        <div class="auth-container card" style="margin: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+        <div class="auth-tabs">
+            <button class="tab active" onclick="switchTab('user-login')">User Login</button>
+            <button class="tab" onclick="switchTab('admin-login')">Admin Login</button>
+        </div>
+
+        <!-- User Login Form -->
+        <form id="form-user-login" class="auth-form active text-left" onsubmit="handleLogin(event, 'user')">
+            <h3>Welcome Back</h3>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" id="login-pass" required style="padding-right: 40px;">
+                    <i class="fa-solid fa-eye" onclick="togglePassword('login-pass', this)" style="position: absolute; right: 15px; cursor: pointer; color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;" title="Show Password"></i>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.9rem;">
+                <label style="display: flex; align-items: center; gap: 5px; color: var(--text-muted); cursor: pointer;">
+                    <input type="checkbox" id="user-remember"> Remember Me
+                </label>
+                <a href="#" onclick="switchTab('user-register'); return false;" style="font-size: 0.9rem;">Don't have an account? Sign Up</a>
+            </div>
+            <button type="submit" class="btn-primary w-100">Sign In</button>
+            <p id="user-login-error" class="error-msg"></p>
+        </form>
+
+        <!-- User Register Form -->
+        <form id="form-user-register" class="auth-form text-left" style="display: none;" onsubmit="handleRegister(event)">
+            <h3>Create Account</h3>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="reg-name" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="reg-email" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" id="reg-pass" required style="padding-right: 40px;">
+                    <i class="fa-solid fa-eye" onclick="togglePassword('reg-pass', this)" style="position: absolute; right: 15px; cursor: pointer; color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;" title="Show Password"></i>
+                </div>
+            </div>
+            <div style="text-align: right; margin-bottom: 1rem;">
+                <a href="#" onclick="switchTab('user-login'); return false;" style="font-size: 0.9rem;">Already have an account? Sign In</a>
+            </div>
+            <button type="submit" class="btn-primary w-100">Sign Up</button>
+            <p id="user-reg-error" class="error-msg"></p>
+        </form>
+
+        <!-- Admin Login Form -->
+        <form id="form-admin-login" class="auth-form text-left" style="display: none;" onsubmit="handleLogin(event, 'admin')">
+            <h3 style="color: var(--secondary);">Admin Portal</h3>
+            <div class="form-group">
+                <label>Admin Email</label>
+                <input type="email" id="admin-email" required>
+            </div>
+            <div class="form-group">
+                <label>Admin Password</label>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" id="admin-pass" required style="padding-right: 40px;">
+                    <i class="fa-solid fa-eye" onclick="togglePassword('admin-pass', this)" style="position: absolute; right: 15px; cursor: pointer; color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;" title="Show Password"></i>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 1rem; font-size: 0.9rem;">
+                <label style="display: flex; align-items: center; gap: 5px; color: var(--text-muted); cursor: pointer;">
+                    <input type="checkbox" id="admin-remember"> Remember Me
+                </label>
+            </div>
+            <button type="submit" class="btn-secondary w-100">Admin Sign In</button>
+            <p id="admin-login-error" class="error-msg"></p>
+        </form>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
