@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Designs | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +21,10 @@
         </ul>
         <div class="nav-actions">
             <button id="theme-toggle" class="btn-icon">🌙</button>
-            <a href="login.html" class="btn-primary" id="loginBtn">Login</a>
+            <a href="login.html" class="btn-auth" id="loginBtn">
+                <i class="fa-solid fa-user"></i>
+                <span>Sign up / Log in</span>
+            </a>
             <a href="dashboard.html" class="btn-icon" id="dashboardMenuBtn" style="display: none; text-decoration: none; padding: 8px 12px; font-size: 1.4rem;" title="Go to Dashboard">&#9776;</a>
         </div>
     </nav>
@@ -38,41 +42,53 @@
     <section id="about" class="section bg-alt">
         <div class="container">
             <h2 class="section-title text-center">About Dev Designs</h2>
-            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem;">
                 
+                <!-- About Us -->
                 <div class="text-center">
-                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted);">
-                        <strong>Dev Designs</strong> is a premier digital creative agency specializing in <strong>Graphic Design, Photo Editing, and Cinematic Video Editing</strong>. We partner with businesses, creators, and individuals across the globe to transform raw ideas into powerful, captivating visual content that tells a compelling story.
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted);">
+                        <strong>Dev Designs</strong> is an <strong>innovative</strong> creative digital agency dedicated to providing <strong>high-quality</strong>, <strong>visually compelling</strong>, and <strong>impactful</strong> creative solutions. We specialize in Graphic Design, Photo & Video Editing, 3D Modeling, and Professional Writing, delivering tailored services with a relentless focus on <strong>client satisfaction</strong> and excellence.
                     </p>
                 </div>
 
-                <div class="card text-left" style="background: var(--bg-main);">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Our Mission</h3>
-                    <p style="color: var(--text-muted); line-height: 1.7;">
-                        Our approach is built on the core belief that every brand has a unique identity. We merge relentless creativity with professional, high-quality production standards to ensure your narrative stands out in a crowded digital landscape. We obsess over every frame, pixel, and color grade to deliver masterpieces that exceed expectations.
+                <!-- Mission -->
+                <div class="card text-left" style="background: var(--bg-main); border-left: 5px solid var(--primary); padding: 1.5rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem;">Our Mission</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                        Our mission is to help clients bring their most ambitious ideas to life through <strong>unwavering professionalism</strong>, <strong>precision in execution</strong>, and <strong>timely delivery</strong>. We strive to bridge the gap between imagination and reality by creating masterpieces that leave a lasting mark.
                     </p>
                 </div>
 
+                <!-- Core Expertise & Why Choose Us -->
                 <div class="grid-2 mt-2">
-                    <div class="card text-left">
-                        <h3 style="margin-bottom: 1rem; color: var(--secondary);">Core Expertise</h3>
-                        <ul style="color: var(--text-muted); list-style: none; line-height: 2;">
-                            <li>🎨 Complete Graphic Design & Branding</li>
-                            <li>📸 Professional Photo Editing & Retouching</li>
-                            <li>🎬 Cinematic Video Editing</li>
-                            <li>📱 Engaging Social Media Content</li>
+                    <div class="card text-left" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 1.2rem; color: var(--secondary);">Core Expertise</h3>
+                        <ul style="color: var(--text-muted); list-style: none; line-height: 2; font-size: 0.95rem;">
+                            <li>🎨 <strong>Graphic Design:</strong> Branding, posters, and YouTube thumbnails.</li>
+                            <li>🎬 <strong>Video Editing:</strong> Cinematic reels and high-impact YouTube content.</li>
+                            <li>📸 <strong>Photo Editing:</strong> Professional retouching and image manipulation.</li>
+                            <li>🧊 <strong>3D Modeling:</strong> Product and concept visualization for realism.</li>
+                            <li>✍️ <strong>Writing:</strong> Creative content creation, scripts, and articles.</li>
                         </ul>
                     </div>
                     
-                    <div class="card text-left">
-                        <h3 style="margin-bottom: 1rem; color: var(--primary);">Why Choose Dev Designs?</h3>
-                        <ul style="color: var(--text-muted); list-style: none; line-height: 2;">
-                            <li>✨ <strong>Unmatched Creativity:</strong> Original designs tailored to your specific brand DNA.</li>
-                            <li>💎 <strong>Premium Quality:</strong> High-fidelity editing and flawless technical execution.</li>
-                            <li>⚡ <strong>Rapid Delivery:</strong> Professional-grade results delivered precisely on your deadlines.</li>
-                            <li>🤝 <strong>Client-Focused:</strong> Collaborative process guaranteeing your complete satisfaction.</li>
+                    <div class="card text-left" style="padding: 1.5rem;">
+                        <h3 style="margin-bottom: 1.2rem; color: var(--primary);">Why Choose Dev Designs?</h3>
+                        <ul style="color: var(--text-muted); list-style: none; line-height: 2; font-size: 0.95rem;">
+                            <li>✨ <strong>Innovative Excellence:</strong> Original designs using modern techniques.</li>
+                            <li>🤝 <strong>Client-Focused:</strong> Collaborative process tailored to your vision.</li>
+                            <li>⚡ <strong>Rapid Delivery:</strong> Reliable turnaround without quality loss.</li>
+                            <li>💎 <strong>Attention to Detail:</strong> Every pixel and word is polished to perfection.</li>
+                            <li>💰 <strong>Flexible Pricing:</strong> Scalable and affordable solutions for all.</li>
                         </ul>
                     </div>
+                </div>
+
+                <!-- Closing Statement -->
+                <div class="text-center mt-2">
+                    <p style="font-size: 1.15rem; font-weight: 600; color: var(--text); font-style: italic;">
+                        "At Dev Designs, we don't just deliver services — we craft <span style="color: var(--primary);">impactful experiences</span> that elevate your brand and leave a <span style="color: var(--secondary);">lasting impression</span>."
+                    </p>
                 </div>
 
             </div>
@@ -82,32 +98,116 @@
     <!-- Services Section -->
     <section id="services" class="section">
         <div class="container">
-            <h2 class="section-title text-center">Our Services</h2>
-            <div class="grid-3">
-                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                    <div>
-                        <div class="card-icon">🎨</div>
-                        <h3>Graphic Design</h3>
-                        <p>Branding, Logos, Posters, UI/UX framing, and high-fidelity digital art perfectly tailored to your vision.</p>
+            <h2 class="section-title text-center mb-2">Our Premium Services</h2>
+            
+            <div class="services-list-container">
+                
+                <!-- 1. GRAPHIC DESIGNING -->
+                <div class="service-item">
+                    <div class="service-content">
+                        <div class="service-heading">Graphic Designing</div>
+                        <h2 class="service-title">Creative Graphic Designing Solutions</h2>
+                        <p class="service-description">Elevate your brand with visually compelling and high-quality graphic designs. We transform your ideas into powerful visual identities.</p>
+                        <ul class="service-list">
+                            <li>Logo designs</li>
+                            <li>Poster designs</li>
+                            <li>Article designs</li>
+                            <li>Magazine designs</li>
+                            <li>Function invitation cover design</li>
+                            <li>Thumbnail designs</li>
+                        </ul>
+                        <p style="color: var(--primary); font-weight: 600; margin-bottom: 2rem;">"Turning your ideas into striking visual identities"</p>
+                        <a href="#contact" class="btn-primary">Explore Designs</a>
                     </div>
-                    <a href="brochure.html#graphic-design" class="btn-primary w-100" style="margin-top: 1.5rem; text-decoration: none; display: block;">View</a>
-                </div>
-                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                    <div>
-                        <div class="card-icon">🎬</div>
-                        <h3>Video Editing</h3>
-                        <p>Social media reels, cinematic montages, corporate videos, and YouTube content with superior color grading.</p>
+                    <div class="service-image">
+                        <img src="graphic-service.png" alt="Graphic Designing">
                     </div>
-                    <a href="brochure.html#video-editing" class="btn-primary w-100" style="margin-top: 1.5rem; text-decoration: none; display: block;">View</a>
                 </div>
-                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                    <div>
-                        <div class="card-icon">📸</div>
-                        <h3>Photo Editing</h3>
-                        <p>Professional retouching, color correction, and image manipulation to make your photos stand out.</p>
+
+                <!-- 2. VIDEO EDITING -->
+                <div class="service-item">
+                    <div class="service-content">
+                        <div class="service-heading">Video Editing</div>
+                        <h2 class="service-title">Professional Video Editing Services</h2>
+                        <p class="service-description">Bring your stories to life with cinematic editing, engaging reels, and high-quality video production tailored for modern platforms.</p>
+                        <ul class="service-list">
+                            <li>Cinematic Precision</li>
+                            <li>YouTube Shorts</li>
+                            <li>Instagram Reels</li>
+                        </ul>
+                        <div class="offer-box">
+                            <h4>Offers for YouTubers:</h4>
+                            <ul class="service-list" style="margin-bottom: 0;">
+                                <li>Pack-1: Full clip editing</li>
+                                <li>Pack-2: Content & script support</li>
+                                <li>Pack-3: Shorts & YouTube videos</li>
+                            </ul>
+                            <p class="offer-note">This offer is exclusively for YouTubers</p>
+                        </div>
+                        <a href="#contact" class="btn-primary">Explore Videos</a>
                     </div>
-                    <a href="brochure.html#photo-editing" class="btn-primary w-100" style="margin-top: 1.5rem; text-decoration: none; display: block;">View</a>
+                    <div class="service-image">
+                        <img src="video-service.png" alt="Video Editing">
+                    </div>
                 </div>
+
+                <!-- 3. PHOTO EDITING -->
+                <div class="service-item">
+                    <div class="service-content">
+                        <div class="service-heading">Photo Editing</div>
+                        <h2 class="service-title">Advanced Photo Editing Solutions</h2>
+                        <p class="service-description">Enhance and transform your images with professional retouching and creative editing techniques.</p>
+                        <ul class="service-list">
+                            <li>Portrait editing</li>
+                            <li>Product photo editing</li>
+                            <li>Fashion photo editing</li>
+                            <li>Creative photo manipulation</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Explore Photos</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="photo-service.png" alt="Photo Editing">
+                    </div>
+                </div>
+
+                <!-- 4. 3D MODELING -->
+                <div class="service-item">
+                    <div class="service-content">
+                        <div class="service-heading">3D Modeling</div>
+                        <h2 class="service-title">Realistic 3D Modeling Services</h2>
+                        <p class="service-description">Create stunning 3D models for products, concepts, and visual presentations with precision and realism.</p>
+                        <ul class="service-list">
+                            <li>Product modeling</li>
+                            <li>Concept visualization</li>
+                            <li>3D rendering</li>
+                            <li>Industrial design modeling</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Explore 3D Works</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="3d-service.png" alt="3D Modeling">
+                    </div>
+                </div>
+
+                <!-- 5. WRITING -->
+                <div class="service-item">
+                    <div class="service-content">
+                        <div class="service-heading">Writing</div>
+                        <h2 class="service-title">Professional Content Writing Services</h2>
+                        <p class="service-description">Deliver impactful content that connects with your audience and strengthens your brand voice.</p>
+                        <ul class="service-list">
+                            <li>Article writing</li>
+                            <li>Script writing</li>
+                            <li>Creative writing</li>
+                            <li>Content development</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Explore Content</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="writing-service.png" alt="Writing Services">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -120,6 +220,86 @@
             <h2 class="section-title text-center">Client Testimonials</h2>
             <div id="testimonials-list" class="grid-3" style="margin-top: 3rem;">
                 <!-- Loaded dynamically by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title text-center">DO YOU HAVE A QUESTION?</h2>
+            <div class="faq-container" style="max-width: 800px; margin: 3rem auto 0 auto;">
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What services does Dev Designs offer?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide Graphic Design, Video Editing, Photo Editing, 3D Modeling, and Writing services tailored to your needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I submit a project request?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can submit your project through our website by filling out the request form with your requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does it take to complete a project?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines depend on the complexity, but we always aim for fast and efficient delivery.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer revisions?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer revisions to ensure the final output meets your expectations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What file formats will I receive?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We deliver files in high-quality formats suitable for your needs (PNG, JPG, MP4, etc.).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are your services suitable for beginners or startups?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we work with individuals, startups, and businesses of all sizes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide custom design solutions?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely, all our services are tailored to match your unique requirements.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -156,11 +336,76 @@
         </div>
     </section>
 
-    <footer>
-        <div style="margin-bottom: 1rem;">
-            <a href="index.html" class="logo" style="justify-content: center;"><img src="logo.svg" alt="Dev Designs Logo">Dev Designs</a>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: COMPANY -->
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: SERVICES -->
+                <div class="footer-column">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li><a href="#services">Graphic Designing</a></li>
+                        <li><a href="#services">Video Editing</a></li>
+                        <li><a href="#services">Photo Editing</a></li>
+                        <li><a href="#services">3D Modeling</a></li>
+                        <li><a href="#services">Writing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: LEGAL -->
+                <div class="footer-column">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: SUPPORT -->
+                <div class="footer-column">
+                    <h4>SUPPORT</h4>
+                    <ul>
+                        <li><a href="mailto:devdesigns@gmail.com?subject=Help Request – Dev Designs&body=Hello Dev Designs Team,%0AI need assistance with...">Help Center</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: FOLLOW US -->
+                <div class="footer-column">
+                    <h4>FOLLOW US</h4>
+                    <ul class="social-links">
+                        <li><a href="https://www.instagram.com/dev_designs.6?igsh=aXZqdnN4ZGY0MnVm" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-x-twitter"></i> Twitter (X)</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div style="margin-bottom: 5px;">
+                    <p>© 2026 Dev Designs. All rights reserved.</p>
+                </div>
+                <div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">"Crafting creative solutions for modern brands"</p>
+                </div>
+            </div>
         </div>
-        <p>&copy; 2026 Dev Designs. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>

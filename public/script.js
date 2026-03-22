@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ====== AUTHENTICATION UI LOGIC ====== */
-function switchTab(tabId) {
+function switchTab(tabId, e) {
     document.querySelectorAll('.auth-form').forEach(f => f.style.display = 'none');
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     
     document.getElementById('form-' + tabId).style.display = 'block';
-    event.target.classList.add('active');
+    if(e) e.target.classList.add('active');
 }
 
 function togglePassword(inputId, btn) {
@@ -100,6 +100,22 @@ async function handleRegister(e) {
     const name = document.getElementById('reg-name').value;
     const email = document.getElementById('reg-email').value;
     const pass = document.getElementById('reg-pass').value;
+    const confirmPass = document.getElementById('reg-pass-confirm').value;
+    const errorEl = document.getElementById('user-reg-error');
+    const successEl = document.getElementById('user-reg-success');
+
+    errorEl.innerText = '';
+    successEl.style.display = 'none';
+
+    // Validation
+    if (pass !== confirmPass) {
+        errorEl.innerText = "Passwords do not match!";
+        return;
+    }
+    if (pass.length < 6) {
+        errorEl.innerText = "Password must be at least 6 characters long.";
+        return;
+    }
 
     try {
         const res = await fetch(`${API_BASE}/auth/register`, {
@@ -109,22 +125,23 @@ async function handleRegister(e) {
         });
         const data = await res.json();
         if (res.ok) {
-            alert('Registration Successful! Please login.');
-            switchTab('user-login');
+            successEl.style.display = 'block';
+            setTimeout(() => { switchTab('user-login'); }, 2000);
         } else {
-            alert(data.error || 'Registration failed');
+            errorEl.innerText = data.error || 'Registration failed';
         }
     } catch (err) {
         console.warn("API Registration failed, using mock registration", err);
         const users = getMockUsers();
         if (users.find(u => u.email === email)) {
-            alert('Email already registered (Simulator)');
+            errorEl.innerText = 'Email already registered (Simulator)';
             return;
         }
         const newUser = { id: 'u' + Date.now(), name, email, password: pass, role: 'user' };
         saveMockUser(newUser);
-        alert('Simulator: Registration Successful! (Local fallback)');
-        switchTab('user-login');
+        successEl.innerText = 'Simulator: Account created successfully!';
+        successEl.style.display = 'block';
+        setTimeout(() => { switchTab('user-login'); }, 2000);
     }
 }
 
@@ -142,18 +159,17 @@ async function handleLogin(e, role) {
     };
 
     try {
-        const endpoint = isUser ? `${API_BASE}/auth/login` : `${API_BASE}/auth/admin-login`;
-        const res = await fetch(endpoint, {
+        const res = await fetch(`${API_BASE}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password: pass })
+            body: JSON.stringify({ email, password: pass, isAdminLogin: !isUser })
         });
         const data = await res.json();
         
         if (res.ok) {
             // Store token and user data
             if (data.token) localStorage.setItem('token', data.token);
-            saveSession(data.user || data.admin);
+            saveSession(data.user);
         } else {
             document.getElementById(isUser ? 'user-login-error' : 'admin-login-error').innerText = data.error;
         }
@@ -226,16 +242,19 @@ async function submitProject(e) {
     const submitBtn = e.target.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
 
+    const user = JSON.parse(sessionStorage.getItem('currentUser') || localStorage.getItem('currentUser'));
     const formData = new FormData();
+    formData.append('userId', user ? user.id : '');
     formData.append('name', document.getElementById('req-name').value);
     formData.append('email', document.getElementById('req-email').value);
     formData.append('phone', (document.getElementById('req-country-code') ? document.getElementById('req-country-code').value + ' ' : '') + document.getElementById('req-phone').value);
     formData.append('serviceType', document.getElementById('req-service').value);
     formData.append('description', document.getElementById('req-desc').value);
+    formData.append('deadline', document.getElementById('req-deadline').value);
     
     const fileInput = document.getElementById('req-file');
     if (fileInput.files[0]) {
-        formData.append('file', fileInput.files[0]);
+        formData.append('projectFile', fileInput.files[0]);
     }
 
     try {
@@ -636,4 +655,27 @@ async function loadPublicReviews() {
 
 document.addEventListener('DOMContentLoaded', () => {
     loadPublicReviews();
+
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all items
+            faqItems.forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-icon').innerText = '+';
+            });
+
+            // Open clicked item if it wasn't already open
+            if (!isActive) {
+                item.classList.add('active');
+                icon.innerText = '−';
+            }
+        });
+    });
 });

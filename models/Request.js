@@ -5,7 +5,7 @@ const requestSchema = new mongoose.Schema({
     name: String,
     email: String,
     phone: String,
-    serviceType: { type: String, enum: ['Graphic Design', 'Video Editing', 'Photo Editing'] },
+    serviceType: { type: String, enum: ['Graphic Design', 'Video Editing', 'Photo Editing', 'Brand Identity', '3D Modeling', 'Writing', 'Other'] },
     description: String,
     deadline: Date,
     fileUrl: String, 

@@ -24,8 +24,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Serve static frontend UI
+// Serve static frontend UI (Serve root index.html as home, public for assets)
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Create uploads directory if it doesn't exist
 const uploadDir = path.join(__dirname, 'uploads');
@@ -35,8 +38,8 @@ if (!fs.existsSync(uploadDir)){
 app.use('/uploads', express.static('uploads'));
 
 // Replace this with a real MongoDB URI if deploying it
-const MOONGO_URI = 'mongodb://127.0.0.1:27017/creative-studio';
-mongoose.connect(MOONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+const MONGO_URI = 'mongodb://127.0.0.1:27017/creative-studio';
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('✅ MongoDB connected'))
     .catch(err => console.log('❌ MongoDB Connection Error:', err));
 
